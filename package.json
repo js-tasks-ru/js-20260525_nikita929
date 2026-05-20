@@ -1,0 +1,53 @@
+{
+  "name": "tasks-js",
+  "version": "1.0.0",
+  "description": "Repo with tasks for JS",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint \"./**/*.js\"",
+    "lint:fix": "eslint --fix \"./**/*.js\"",
+    "build:ts": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev:task": "node scripts/dev-task.js",
+    "dev:04:1-column-chart": "node scripts/dev-task.js 04-oop-basic-intro-to-ts/1-column-chart",
+    "dev:05:1-notification": "node scripts/dev-task.js 05-dom-document-loading/1-notification",
+    "dev:05:2-sortable-table-v1": "node scripts/dev-task.js 05-dom-document-loading/2-sortable-table-v1",
+    "dev:06:1-sortable-table-v2": "node scripts/dev-task.js 06-events-practice/1-sortable-table-v2",
+    "dev:06:2-tooltip": "node scripts/dev-task.js 06-events-practice/2-tooltip",
+    "dev:06:3-double-slider": "node scripts/dev-task.js 06-events-practice/3-double-slider",
+    "dev:07:1-product-form-v1": "node scripts/dev-task.js 07-forms-fetch-api/1-product-form-v1",
+    "dev:07:2-range-picker": "node scripts/dev-task.js 07-forms-fetch-api/2-range-picker",
+    "dev:08:1-column-chart": "node scripts/dev-task.js 08-async-code-fetch-api/1-column-chart",
+    "dev:08:2-sortable-table-v3": "node scripts/dev-task.js 08-async-code-fetch-api/2-sortable-table-v3",
+    "dev:09:1-product-form-v2": "node scripts/dev-task.js 09-tests-for-frontend-apps/1-product-form-v2",
+    "dev:09:2-sortable-list": "node scripts/dev-task.js 09-tests-for-frontend-apps/2-sortable-list",
+    "dev:10:1-dashboard-page": "node scripts/dev-task.js 10-routes-browser-history-api/1-dashboard-page",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:specific": "vitest run -t"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javascriptru/tasks-js-3.git"
+  },
+  "author": "Vladimir Shevchuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javascriptru/tasks-js-3/issues"
+  },
+  "homepage": "https://github.com/javascriptru/tasks-js-3#readme",
+  "engines": {
+    "node": ">=24.12.0",
+    "npm": ">=10.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.32.0",
+    "jsdom": "^27.4.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.3.1",
+    "vitest": "^4.0.16",
+    "vitest-fetch-mock": "^0.4.5"
+  }
+}
