@@ -60,21 +60,12 @@ export default class NotificationMessage {
   }
 
   remove(): void {
-    if (this._element) {
-      if (this._element.isConnected) {
-        this._element.remove();
-      } else {
-        const parentElement = this._element.parentElement;
-        if (parentElement && parentElement.isConnected) {
-          parentElement.removeChild(this._element);
-        }
-      }
-    }
+    this._element?.remove();
   }
 
   destroy(): void {
-    this.remove();
     this.clearTimer();
+    this.remove();
 
     if (NotificationMessage.activeNotification === this) {
       NotificationMessage.activeNotification = null;
