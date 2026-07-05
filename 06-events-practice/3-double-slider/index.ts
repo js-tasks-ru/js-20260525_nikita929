@@ -39,7 +39,10 @@ export default class DoubleSlider {
     this.min = min;
     this.max = max;
     this.formatValue = formatValue;
-    this.selected = { ...selected };
+    this.selected = {
+      from: selected.from ?? min,
+      to: selected.to ?? max,
+    };
 
     this.boundPointerMove = this.onPointerMove.bind(this);
     this.boundPointerUp = this.onPointerUp.bind(this);
@@ -98,9 +101,7 @@ export default class DoubleSlider {
   ): void {
     event.preventDefault();
     this.activeThumb = thumb;
-
     this.element.classList.add("range-slider_dragging");
-    this.element.setPointerCapture(event.pointerId);
 
     document.addEventListener("pointermove", this.boundPointerMove);
     document.addEventListener("pointerup", this.boundPointerUp);
@@ -108,7 +109,6 @@ export default class DoubleSlider {
 
   private onPointerMove(event: PointerEvent): void {
     if (!this.activeThumb) return;
-
     event.preventDefault();
     this.moveX(event.clientX);
   }
@@ -156,7 +156,7 @@ export default class DoubleSlider {
     const leftValue =
       range === 0 ? 0 : ((this.selected.from - this.min) / range) * 100;
     const rightValue =
-      range === 0 ? 100 : ((this.selected.to - this.min) / range) * 100;
+      range === 0 ? 0 : ((this.selected.to - this.min) / range) * 100;
 
     this.thumbLeft.style.left = `${leftValue}%`;
     this.thumbRight.style.right = `${100 - rightValue}%`;
@@ -164,8 +164,8 @@ export default class DoubleSlider {
     this.progressBar.style.left = `${leftValue}%`;
     this.progressBar.style.right = `${100 - rightValue}%`;
 
-    this.fromElement.textContent = `$${this.formatValue(this.selected.from)}`;
-    this.toElement.textContent = `$${this.formatValue(this.selected.to)}`;
+    this.fromElement.textContent = this.formatValue(this.selected.from);
+    this.toElement.textContent = this.formatValue(this.selected.to);
   }
 
   private dispatchRangeSelect(): void {
