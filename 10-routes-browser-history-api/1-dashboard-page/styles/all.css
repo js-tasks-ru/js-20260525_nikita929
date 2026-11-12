@@ -1,0 +1,7 @@
+@import url("common.css");
+
+/* Styles for components  */
+/* components */
+@import url("../../../../08-async-code-fetch-api/1-column-chart/src/style.css");
+@import url("../../../../08-async-code-fetch-api/2-sortable-table-v3/src/style.css");
+@import url("../../../../07-forms-fetch-api/2-range-picker/src/style.css");
